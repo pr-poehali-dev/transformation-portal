@@ -91,13 +91,15 @@ const ResultsSection = () => {
           <p className="font-body text-portal-dark/70 text-base mb-8">
             Рост станет естественным следствием новой внутренней позиции.
           </p>
-          <button
-            onClick={() => scrollToSection("how-it-works")}
+          <a
+            href="https://t.me/voroshilinaella"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-portal-crimson text-portal-cream font-body font-medium text-base px-8 py-4 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"
           >
             Хочу участвовать
             <Icon name="Sparkles" size={18} />
-          </button>
+          </a>
         </div>
       </div>
     </section>

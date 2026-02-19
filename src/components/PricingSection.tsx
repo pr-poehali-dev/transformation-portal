@@ -56,13 +56,15 @@ const PricingSection = () => {
             <span>Старт: 23 февраля</span>
           </div>
 
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          <a
+            href="https://t.me/voroshilinaella"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-glow inline-flex items-center gap-2 bg-portal-crimson text-portal-cream font-body font-semibold text-lg px-12 py-5 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"
           >
             Хочу участвовать
             <Icon name="ArrowRight" size={20} />
-          </button>
+          </a>
         </div>
       </div>
     </section>

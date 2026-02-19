@@ -58,13 +58,15 @@ const HowItWorksSection = () => {
           <p className="font-body text-portal-cream/70 text-base mb-8">
             Мы не даём теорию, а работаем с внутренней архитектурой личности.
           </p>
-          <button
-            onClick={() => scrollToSection("program")}
+          <a
+            href="https://t.me/voroshilinaella"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-glow inline-flex items-center gap-2 bg-portal-gold text-portal-dark font-body font-semibold text-base px-10 py-4 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"
           >
             Записаться
             <Icon name="ArrowRight" size={18} />
-          </button>
+          </a>
         </div>
       </div>
     </section>

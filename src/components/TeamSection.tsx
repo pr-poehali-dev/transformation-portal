@@ -4,6 +4,7 @@ import Icon from "@/components/ui/icon";
 const team = [
   {
     name: "Елена",
+    telegram: "https://t.me/Elena_proresurs",
     photo: "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/eedb3df5-7e56-4812-bd10-9f7e98d04149.png",
     role: "Мастер Рей Ки До Сатори, целитель, регрессолог",
     description: "Помогает женщинам и мужчинам очистить свою энергосистему, повысить уровень жизненного ресурса при помощи медитативных практик и регресса.",
@@ -11,6 +12,7 @@ const team = [
   },
   {
     name: "Элла",
+    telegram: "https://t.me/voroshilinaella",
     photo: "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/508dccba-a3f5-45e5-b64f-fcea5b3ed80d.png",
     role: "Автор системы «Архитектор Судьбы», трансформационный практик, целитель, ченнеллер",
     description: "Помогает экспертам и людям в точке перехода выйти на новый уровень дохода, проявления и личной зрелости.",
@@ -18,6 +20,7 @@ const team = [
   },
   {
     name: "Максим",
+    telegram: "https://t.me/voroshilinaella",
     photo: "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/959e8051-ad99-4d21-a08c-ff59696361c7.png",
     role: "Финансовый стратег перехода",
     description: "Помогает экспертам и предпринимателям, которые выросли, но упёрлись в потолок дохода.",
@@ -71,9 +74,18 @@ const TeamSection = () => {
                 <p className="font-body text-portal-dark/75 text-[14px] leading-relaxed mb-2">
                   {person.description}
                 </p>
-                <p className="font-body text-portal-dark/60 text-[13px] leading-relaxed">
+                <p className="font-body text-portal-dark/60 text-[13px] leading-relaxed mb-4">
                   {person.details}
                 </p>
+                <a
+                  href={person.telegram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-portal-crimson font-body text-sm font-medium hover:underline"
+                >
+                  <Icon name="Send" size={14} />
+                  Написать в Telegram
+                </a>
               </div>
             </div>
           ))}
@@ -92,13 +104,15 @@ const TeamSection = () => {
         </div>
 
         <div className="text-center">
-          <button
-            onClick={() => scrollToSection("pricing")}
+          <a
+            href="https://t.me/voroshilinaella"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-glow inline-flex items-center gap-2 bg-portal-gold text-portal-dark font-body font-semibold text-base px-10 py-4 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"
           >
             Записаться
             <Icon name="ArrowRight" size={18} />
-          </button>
+          </a>
         </div>
       </div>
     </section>
