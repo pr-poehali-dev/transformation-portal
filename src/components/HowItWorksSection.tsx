@@ -5,20 +5,20 @@ const features = [
   { icon: "Calendar", text: "21 день глубокой трансформации" },
   { icon: "Globe", text: "Онлайн" },
   { icon: "Users", text: "Групповой формат + индивидуальные сессии" },
-  { icon: "Headphones", text: "Практики-медитации для запуска энергосистемы и восстановления ресурса" },
-  { icon: "Heart", text: "Энерговибрационные сеансы для целостности через соединение тела, души и духа" },
+  { icon: "Headphones", text: "Практики-медитации, которые помогут запустить вашу энергосистему и восстановить ресурс" },
+  { icon: "Heart", text: "Энерговибрационные сеансы, на которых вы придёте к своей целостности через соединения тела, души и духа" },
   { icon: "Shield", text: "Сопровождение до результата" },
 ];
 
 const HowItWorksSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section id="how-it-works" className="py-24 md:py-32 bg-portal-cream">
+    <section id="how-it-works" className="py-24 md:py-32" style={{ backgroundColor: "#f0ebe5" }}>
       <div
         ref={ref}
         className={`max-w-4xl mx-auto px-6 transition-all duration-1000 ${
@@ -59,7 +59,7 @@ const HowItWorksSection = () => {
             Мы не даём теорию, а работаем с внутренней архитектурой личности.
           </p>
           <button
-            onClick={scrollToTop}
+            onClick={() => scrollToSection("program")}
             className="btn-glow inline-flex items-center gap-2 bg-portal-gold text-portal-dark font-body font-semibold text-base px-10 py-4 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"
           >
             Записаться

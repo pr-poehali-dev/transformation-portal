@@ -1,24 +1,26 @@
-import Icon from "@/components/ui/icon";
 import useScrollReveal from "@/hooks/useScrollReveal";
+
+const reviewScreenshots = [
+  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/files/review1.jpg",
+  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/files/review2.jpg",
+  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/files/review3.jpg",
+];
 
 const reviews = [
   {
     name: "Елена К.",
     role: "Психолог",
     text: "После ПОРТАЛА я впервые подняла чек без внутреннего сопротивления. Клиенты стали приходить другого уровня — и это не магия, а реальная работа с идентичностью.",
-    rating: 5,
   },
   {
     name: "Ирина М.",
     role: "Коуч",
     text: "Синдром самозванца преследовал меня 3 года. За 21 день он растворился. Я начала проводить эфиры, писать посты — и это стало естественным.",
-    rating: 5,
   },
   {
     name: "Наталья С.",
     role: "Нутрициолог",
     text: "Я прошла десятки обучений, но именно ПОРТАЛ дал то, чего не хватало — внутреннюю устойчивость и разрешение на рост. Доход вырос в 2 раза за месяц после практикума.",
-    rating: 5,
   },
 ];
 
@@ -46,12 +48,6 @@ const ReviewsSection = () => {
               key={i}
               className="bg-white rounded-3xl p-7 border border-portal-dark/5 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col"
             >
-              <div className="flex gap-0.5 mb-4">
-                {Array.from({ length: review.rating }).map((_, j) => (
-                  <Icon key={j} name="Star" size={16} className="text-portal-gold fill-portal-gold" />
-                ))}
-              </div>
-
               <p className="font-body text-portal-dark/75 text-[15px] leading-relaxed mb-6 flex-1">
                 «{review.text}»
               </p>
@@ -71,6 +67,19 @@ const ReviewsSection = () => {
                   </p>
                 </div>
               </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+          {reviewScreenshots.map((src, i) => (
+            <div key={i} className="rounded-2xl overflow-hidden border border-portal-dark/5 shadow-md hover:shadow-xl transition-shadow duration-500">
+              <img
+                src={src}
+                alt={`Отзыв участника ${i + 1}`}
+                className="w-full h-auto object-cover"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>

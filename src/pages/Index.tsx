@@ -3,6 +3,10 @@ import ForWhomSection from "@/components/ForWhomSection";
 import ResultsSection from "@/components/ResultsSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
+import ProgramSection from "@/components/ProgramSection";
+import TeamSection from "@/components/TeamSection";
+import PricingSection from "@/components/PricingSection";
+import FinalSection from "@/components/FinalSection";
 import FooterSection from "@/components/FooterSection";
 
 const Index = () => {
@@ -13,6 +17,10 @@ const Index = () => {
       <ResultsSection />
       <ReviewsSection />
       <HowItWorksSection />
+      <ProgramSection />
+      <TeamSection />
+      <PricingSection />
+      <FinalSection />
       <FooterSection />
     </div>
   );
