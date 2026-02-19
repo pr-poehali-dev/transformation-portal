@@ -20,7 +20,7 @@ const team = [
   },
   {
     name: "Максим",
-    telegram: "https://t.me/voroshilinaella",
+    telegram: "https://t.me/Alladium",
     photo: "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/959e8051-ad99-4d21-a08c-ff59696361c7.png",
     role: "Финансовый стратег перехода",
     description: "Помогает экспертам и предпринимателям, которые выросли, но упёрлись в потолок дохода.",
