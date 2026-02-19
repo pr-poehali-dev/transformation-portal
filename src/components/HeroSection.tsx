@@ -1,9 +1,36 @@
 import Icon from "@/components/ui/icon";
+import { useState, useEffect } from "react";
+
+const getTimeLeft = () => {
+  const target = new Date("2026-02-23T10:00:00+03:00").getTime();
+  const now = Date.now();
+  const diff = Math.max(0, target - now);
+  return {
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / (1000 * 60)) % 60),
+    seconds: Math.floor((diff / 1000) % 60),
+  };
+};
 
 const HeroSection = () => {
+  const [time, setTime] = useState(getTimeLeft);
+
+  useEffect(() => {
+    const id = setInterval(() => setTime(getTimeLeft()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const units = [
+    { value: time.days, label: "дней" },
+    { value: time.hours, label: "часов" },
+    { value: time.minutes, label: "минут" },
+    { value: time.seconds, label: "секунд" },
+  ];
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-portal-crimson">
@@ -42,15 +69,30 @@ const HeroSection = () => {
           новый уровень — в деньгах, проявлении и отношениях.
         </p>
 
-        <div className="animate-fade-up-delay-3 flex flex-col items-center gap-4">
-          <div className="inline-flex items-center gap-2 text-portal-gold font-body text-sm tracking-wider mb-2">
+        <div className="animate-fade-up-delay-3 flex flex-col items-center gap-5">
+          <div className="inline-flex items-center gap-2 text-portal-gold font-body text-sm tracking-wider">
             <Icon name="Calendar" size={16} />
             <span>Старт: 23 февраля</span>
           </div>
 
+          <div className="flex items-center gap-3 md:gap-5">
+            {units.map((u, i) => (
+              <div key={i} className="flex flex-col items-center">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white/10 backdrop-blur-sm border border-portal-cream/15 flex items-center justify-center">
+                  <span className="font-heading text-3xl md:text-4xl font-bold text-portal-cream">
+                    {String(u.value).padStart(2, "0")}
+                  </span>
+                </div>
+                <span className="font-body text-portal-cream/50 text-[11px] md:text-xs mt-1.5">
+                  {u.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
           <button
             onClick={() => scrollToSection("for-whom")}
-            className="btn-glow inline-flex items-center gap-2 bg-portal-gold text-portal-dark font-body font-semibold text-base px-10 py-4 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"
+            className="btn-glow inline-flex items-center gap-2 bg-portal-gold text-portal-dark font-body font-semibold text-base px-10 py-4 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105 mt-2"
           >
             Узнать подробнее
             <Icon name="ArrowDown" size={18} />
