@@ -27,13 +27,13 @@ const ReviewsSection = () => {
           Что говорят участницы
         </h2>
 
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-5 space-y-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {reviewScreenshots.map((src, i) => (
-            <div key={i} className="break-inside-avoid rounded-2xl overflow-hidden border border-portal-dark/5 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1">
+            <div key={i} className="rounded-2xl overflow-hidden border border-portal-dark/5 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 aspect-[9/16] bg-portal-dark/5">
               <img
                 src={src}
                 alt={`Отзыв участника ${i + 1}`}
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover object-top"
                 loading="lazy"
               />
             </div>
