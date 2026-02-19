@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import useScrollReveal from "@/hooks/useScrollReveal";
 import Icon from "@/components/ui/icon";
 
@@ -28,6 +28,23 @@ const ReviewsSection = () => {
 
   const prev = () => setOpenIndex((i) => (i !== null ? (i - 1 + reviewScreenshots.length) % reviewScreenshots.length : null));
   const next = () => setOpenIndex((i) => (i !== null ? (i + 1) % reviewScreenshots.length : null));
+
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStart.current) return;
+    const dx = e.changedTouches[0].clientX - touchStart.current.x;
+    const dy = e.changedTouches[0].clientY - touchStart.current.y;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      if (dx < 0) next();
+      else prev();
+    }
+    touchStart.current = null;
+  };
 
   useEffect(() => {
     if (openIndex === null) return;
@@ -107,6 +124,8 @@ const ReviewsSection = () => {
               animating ? "opacity-100 scale-100" : "opacity-0 scale-90"
             }`}
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
           />
 
           <button
