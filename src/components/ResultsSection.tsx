@@ -42,7 +42,7 @@ const ResultsSection = () => {
   };
 
   return (
-    <section id="results" className="py-24 md:py-32 bg-portal-teal">
+    <section id="results" className="py-12 md:py-16 bg-portal-teal">
       <div
         ref={ref}
         className={`max-w-5xl mx-auto px-6 transition-all duration-1000 ${
@@ -92,7 +92,7 @@ const ResultsSection = () => {
             Рост станет естественным следствием новой внутренней позиции.
           </p>
           <a
-            href="https://t.me/voroshilinaella"
+            href="https://t.me/m/oer-H33GZGNi"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-portal-crimson text-portal-cream font-body font-medium text-base px-8 py-4 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"

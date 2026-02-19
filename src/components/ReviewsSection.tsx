@@ -59,7 +59,7 @@ const ReviewsSection = () => {
 
   return (
     <>
-      <section id="reviews" className="py-24 md:py-32 bg-portal-cream">
+      <section id="reviews" className="py-12 md:py-16 bg-portal-cream">
         <div
           ref={ref}
           className={`max-w-5xl mx-auto px-6 transition-all duration-1000 ${

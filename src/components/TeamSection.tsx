@@ -36,7 +36,7 @@ const TeamSection = () => {
   };
 
   return (
-    <section id="team" className="py-24 md:py-32" style={{ backgroundColor: "#f0ebe5" }}>
+    <section id="team" className="py-12 md:py-16" style={{ backgroundColor: "#f0ebe5" }}>
       <div
         ref={ref}
         className={`max-w-5xl mx-auto px-6 transition-all duration-1000 ${
@@ -105,7 +105,7 @@ const TeamSection = () => {
 
         <div className="text-center">
           <a
-            href="https://t.me/voroshilinaella"
+            href="https://t.me/m/oer-H33GZGNi"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-glow inline-flex items-center gap-2 bg-portal-gold text-portal-dark font-body font-semibold text-base px-10 py-4 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"

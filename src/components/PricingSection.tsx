@@ -5,7 +5,7 @@ const PricingSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="pricing" className="py-24 md:py-32" style={{ backgroundColor: "#94c1c0" }}>
+    <section id="pricing" className="py-12 md:py-16" style={{ backgroundColor: "#94c1c0" }}>
       <div
         ref={ref}
         className={`max-w-3xl mx-auto px-6 transition-all duration-1000 ${
@@ -57,7 +57,7 @@ const PricingSection = () => {
           </div>
 
           <a
-            href="https://t.me/voroshilinaella"
+            href="https://t.me/m/oer-H33GZGNi"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-glow inline-flex items-center gap-2 bg-portal-crimson text-portal-cream font-body font-semibold text-lg px-12 py-5 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"

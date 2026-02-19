@@ -5,7 +5,7 @@ const FinalSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden" style={{ backgroundColor: "#b12650" }}>
+    <section className="py-12 md:py-16 relative overflow-hidden" style={{ backgroundColor: "#b12650" }}>
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
       </div>
@@ -35,7 +35,7 @@ const FinalSection = () => {
         </div>
 
         <a
-          href="https://t.me/voroshilinaella"
+          href="https://t.me/m/oer-H33GZGNi"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-glow inline-flex items-center gap-2 bg-portal-gold text-portal-dark font-body font-semibold text-lg px-12 py-5 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"

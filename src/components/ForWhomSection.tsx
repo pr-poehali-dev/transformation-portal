@@ -18,7 +18,7 @@ const ForWhomSection = () => {
   };
 
   return (
-    <section id="for-whom" className="py-24 md:py-32 bg-portal-cream">
+    <section id="for-whom" className="py-12 md:py-16 bg-portal-cream">
       <div
         ref={ref}
         className={`max-w-4xl mx-auto px-6 transition-all duration-1000 ${

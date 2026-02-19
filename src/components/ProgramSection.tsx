@@ -84,7 +84,7 @@ const ProgramSection = () => {
   };
 
   return (
-    <section id="program" className="py-24 md:py-32" style={{ backgroundColor: "#dfc88b" }}>
+    <section id="program" className="py-12 md:py-16" style={{ backgroundColor: "#dfc88b" }}>
       <div
         ref={ref}
         className={`max-w-5xl mx-auto px-6 transition-all duration-1000 ${
