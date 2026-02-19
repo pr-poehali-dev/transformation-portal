@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useScrollReveal from "@/hooks/useScrollReveal";
 import Icon from "@/components/ui/icon";
 
@@ -14,10 +14,31 @@ const reviewScreenshots = [
 const ReviewsSection = () => {
   const { ref, isVisible } = useScrollReveal();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [animating, setAnimating] = useState(false);
 
-  const close = () => setOpenIndex(null);
+  const open = (i: number) => {
+    setOpenIndex(i);
+    requestAnimationFrame(() => setAnimating(true));
+  };
+
+  const close = () => {
+    setAnimating(false);
+    setTimeout(() => setOpenIndex(null), 300);
+  };
+
   const prev = () => setOpenIndex((i) => (i !== null ? (i - 1 + reviewScreenshots.length) % reviewScreenshots.length : null));
   const next = () => setOpenIndex((i) => (i !== null ? (i + 1) % reviewScreenshots.length : null));
+
+  useEffect(() => {
+    if (openIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [openIndex]);
 
   return (
     <>
@@ -39,7 +60,7 @@ const ReviewsSection = () => {
             {reviewScreenshots.map((src, i) => (
               <div
                 key={i}
-                onClick={() => setOpenIndex(i)}
+                onClick={() => open(i)}
                 className="rounded-2xl overflow-hidden border border-portal-dark/5 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 aspect-[9/16] bg-portal-dark/5 cursor-pointer"
               >
                 <img
@@ -56,19 +77,25 @@ const ReviewsSection = () => {
 
       {openIndex !== null && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-all duration-300 ${
+            animating ? "bg-black/80 backdrop-blur-sm" : "bg-black/0 backdrop-blur-0"
+          }`}
           onClick={close}
         >
           <button
             onClick={(e) => { e.stopPropagation(); close(); }}
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+            className={`absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 ${
+              animating ? "opacity-100 scale-100" : "opacity-0 scale-75"
+            }`}
           >
             <Icon name="X" size={24} className="text-white" />
           </button>
 
           <button
             onClick={(e) => { e.stopPropagation(); prev(); }}
-            className="absolute left-3 md:left-6 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+            className={`absolute left-3 md:left-6 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 ${
+              animating ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+            }`}
           >
             <Icon name="ChevronLeft" size={24} className="text-white" />
           </button>
@@ -76,18 +103,24 @@ const ReviewsSection = () => {
           <img
             src={reviewScreenshots[openIndex]}
             alt={`Отзыв участника ${openIndex + 1}`}
-            className="max-h-[85vh] max-w-[90vw] md:max-w-[600px] rounded-2xl shadow-2xl object-contain"
+            className={`max-h-[85vh] max-w-[90vw] md:max-w-[600px] rounded-2xl shadow-2xl object-contain transition-all duration-300 ${
+              animating ? "opacity-100 scale-100" : "opacity-0 scale-90"
+            }`}
             onClick={(e) => e.stopPropagation()}
           />
 
           <button
             onClick={(e) => { e.stopPropagation(); next(); }}
-            className="absolute right-3 md:right-6 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+            className={`absolute right-3 md:right-6 w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all duration-300 ${
+              animating ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
+            }`}
           >
             <Icon name="ChevronRight" size={24} className="text-white" />
           </button>
 
-          <div className="absolute bottom-4 text-white/50 font-body text-sm">
+          <div className={`absolute bottom-4 text-white/50 font-body text-sm transition-all duration-300 ${
+            animating ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}>
             {openIndex + 1} / {reviewScreenshots.length}
           </div>
         </div>
