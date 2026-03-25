@@ -8,6 +8,7 @@ const reviewScreenshots = [
   "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/2aea6e5b-07e3-40e6-898d-b398ee2a7868.png",
   "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/3f94d97a-130d-4800-9fa1-aac44774be04.png",
   "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/963451b2-1326-46fe-b9ba-3c32b6dd9347.png",
+  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/8fa6ac22-2632-4bbf-aa92-c8ed7a9cfc04.png",
 ];
 
 const ReviewsSection = () => {
@@ -72,12 +73,12 @@ const ReviewsSection = () => {
             Что говорят участницы
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-2 gap-3 md:gap-5">
             {reviewScreenshots.map((src, i) => (
               <div
                 key={i}
                 onClick={() => open(i)}
-                className="rounded-2xl overflow-hidden border border-portal-dark/5 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-portal-dark/5 cursor-pointer"
+                className="rounded-xl md:rounded-2xl overflow-hidden border border-portal-dark/5 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-portal-dark/5 cursor-pointer"
               >
                 <img
                   src={src}

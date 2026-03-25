@@ -2,7 +2,7 @@ import Icon from "@/components/ui/icon";
 import useScrollReveal from "@/hooks/useScrollReveal";
 
 const features = [
-  { icon: "Calendar", text: "21 день глубокой трансформации" },
+  { icon: "Calendar", text: "30 дней глубокой трансформации" },
   { icon: "Globe", text: "Онлайн" },
   { icon: "Users", text: "Групповой формат + индивидуальные сессии" },
   { icon: "Headphones", text: "Практики-медитации, которые помогут запустить вашу энергосистему и восстановить ресурс" },
