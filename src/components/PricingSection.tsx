@@ -11,7 +11,11 @@ const standardItems = [
 ];
 
 const vipItems = [
-  ...standardItems,
+  "30 дней трансформации",
+  "Групповой формат",
+  "Практики и медитации",
+  "Энерговибрационные сеансы",
+  "Сопровождение в чате",
   "Индивидуальное сопровождение каждого наставника",
 ];
 
@@ -33,7 +37,7 @@ const PricingSection = () => {
           Форматы и цены
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 items-stretch">
           <div className="bg-white rounded-3xl p-8 md:p-10 border border-portal-dark/5 shadow-xl text-center flex flex-col">
             <div className="inline-block bg-portal-gold/20 text-portal-dark font-body text-sm font-medium px-4 py-1.5 rounded-full mb-6">
               Рекомендуемый
@@ -45,16 +49,16 @@ const PricingSection = () => {
 
             <ul className="space-y-3 text-left max-w-md mx-auto mb-8 flex-1">
               {standardItems.map((item, i) => (
-                <li key={i} className="flex items-center gap-3">
-                  <Icon name="Check" size={18} className="text-portal-crimson flex-shrink-0" />
-                  <span className="font-body text-portal-dark/80 text-base">{item}</span>
+                <li key={i} className="flex items-start gap-3">
+                  <Icon name="Check" size={18} className="text-portal-crimson flex-shrink-0 mt-0.5" />
+                  <span className="font-body text-portal-dark/80 text-base leading-snug">{item}</span>
                 </li>
               ))}
             </ul>
 
             <div className="mb-2">
               <span className="font-heading text-5xl md:text-6xl font-bold text-portal-dark">
-                45 000
+                50 000
               </span>
               <span className="font-body text-portal-dark/60 text-lg ml-1">₽</span>
             </div>
@@ -68,10 +72,10 @@ const PricingSection = () => {
               href="https://t.me/m/oer-H33GZGNi"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-glow inline-flex items-center justify-center gap-2 bg-portal-crimson text-portal-cream font-body font-semibold text-lg px-10 py-5 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"
+              className="btn-glow inline-flex items-center justify-center gap-2 bg-portal-crimson text-portal-cream font-body font-semibold text-base px-8 py-4 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105 w-full"
             >
               Хочу участвовать
-              <Icon name="ArrowRight" size={20} />
+              <Icon name="ArrowRight" size={18} />
             </a>
           </div>
 
@@ -86,13 +90,13 @@ const PricingSection = () => {
 
             <ul className="space-y-3 text-left max-w-md mx-auto mb-8 flex-1">
               {vipItems.map((item, i) => (
-                <li key={i} className="flex items-center gap-3">
+                <li key={i} className="flex items-start gap-3">
                   <Icon
                     name="Check"
                     size={18}
-                    className={`flex-shrink-0 ${i >= standardItems.length ? "text-portal-gold" : "text-portal-cream/60"}`}
+                    className={`flex-shrink-0 mt-0.5 ${i >= vipItems.length - 1 ? "text-portal-gold" : "text-portal-cream/60"}`}
                   />
-                  <span className={`font-body text-base ${i >= standardItems.length ? "text-portal-gold font-semibold" : "text-portal-cream/80"}`}>
+                  <span className={`font-body text-base leading-snug ${i >= vipItems.length - 1 ? "text-portal-gold font-semibold" : "text-portal-cream/80"}`}>
                     {item}
                   </span>
                 </li>
@@ -100,7 +104,10 @@ const PricingSection = () => {
             </ul>
 
             <div className="mb-2">
-              <span className="font-heading text-portal-cream/50 text-base line-through mr-2">По запросу</span>
+              <span className="font-heading text-5xl md:text-6xl font-bold text-portal-cream">
+                100 000
+              </span>
+              <span className="font-body text-portal-cream/60 text-lg ml-1">₽</span>
             </div>
 
             <div className="flex items-center justify-center gap-2 text-portal-cream/60 font-body text-sm mb-8">
@@ -112,10 +119,10 @@ const PricingSection = () => {
               href="https://t.me/m/oer-H33GZGNi"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-glow inline-flex items-center justify-center gap-2 bg-portal-gold text-portal-dark font-body font-semibold text-lg px-10 py-5 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"
+              className="btn-glow inline-flex items-center justify-center gap-2 bg-portal-gold text-portal-dark font-body font-semibold text-base px-8 py-4 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105 w-full"
             >
               Хочу в ВИП
-              <Icon name="ArrowRight" size={20} />
+              <Icon name="ArrowRight" size={18} />
             </a>
           </div>
         </div>
