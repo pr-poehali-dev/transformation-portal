@@ -1,6 +1,20 @@
 import Icon from "@/components/ui/icon";
 import useScrollReveal from "@/hooks/useScrollReveal";
 
+const standardItems = [
+  "30 дней трансформации",
+  "Групповой формат",
+  "Практики и медитации",
+  "Энерговибрационные сеансы",
+  "2 индивидуальных сеанса",
+  "Сопровождение в чате",
+];
+
+const vipItems = [
+  ...standardItems,
+  "Индивидуальное сопровождение каждого наставника",
+];
+
 const PricingSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
@@ -8,7 +22,7 @@ const PricingSection = () => {
     <section id="pricing" className="py-12 md:py-16" style={{ backgroundColor: "#94c1c0" }}>
       <div
         ref={ref}
-        className={`max-w-3xl mx-auto px-6 transition-all duration-1000 ${
+        className={`max-w-4xl mx-auto px-6 transition-all duration-1000 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}
       >
@@ -19,52 +33,91 @@ const PricingSection = () => {
           Форматы и цены
         </h2>
 
-        <div className="bg-white rounded-3xl p-8 md:p-12 border border-portal-dark/5 shadow-xl text-center">
-          <div className="inline-block bg-portal-gold/20 text-portal-dark font-body text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-            Рекомендуемый
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-white rounded-3xl p-8 md:p-10 border border-portal-dark/5 shadow-xl text-center flex flex-col">
+            <div className="inline-block bg-portal-gold/20 text-portal-dark font-body text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+              Рекомендуемый
+            </div>
+
+            <h3 className="font-heading text-3xl md:text-4xl font-bold text-portal-dark mb-4">
+              Стандарт
+            </h3>
+
+            <ul className="space-y-3 text-left max-w-md mx-auto mb-8 flex-1">
+              {standardItems.map((item, i) => (
+                <li key={i} className="flex items-center gap-3">
+                  <Icon name="Check" size={18} className="text-portal-crimson flex-shrink-0" />
+                  <span className="font-body text-portal-dark/80 text-base">{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mb-2">
+              <span className="font-heading text-5xl md:text-6xl font-bold text-portal-dark">
+                45 000
+              </span>
+              <span className="font-body text-portal-dark/60 text-lg ml-1">₽</span>
+            </div>
+
+            <div className="flex items-center justify-center gap-2 text-portal-dark/60 font-body text-sm mb-8">
+              <Icon name="Calendar" size={16} />
+              <span>Старт: 6 апреля</span>
+            </div>
+
+            <a
+              href="https://t.me/m/oer-H33GZGNi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-glow inline-flex items-center justify-center gap-2 bg-portal-crimson text-portal-cream font-body font-semibold text-lg px-10 py-5 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"
+            >
+              Хочу участвовать
+              <Icon name="ArrowRight" size={20} />
+            </a>
           </div>
 
-          <h3 className="font-heading text-3xl md:text-4xl font-bold text-portal-dark mb-4">
-            Стандарт
-          </h3>
+          <div className="bg-portal-dark rounded-3xl p-8 md:p-10 border border-portal-gold/30 shadow-xl text-center flex flex-col">
+            <div className="inline-block bg-portal-gold/30 text-portal-gold font-body text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+              Максимум
+            </div>
 
-          <ul className="space-y-3 text-left max-w-md mx-auto mb-8">
-            {[
-              "21 день трансформации",
-              "Групповой формат",
-              "Практики и медитации",
-              "Энерговибрационные сеансы",
-              "2 индивидуальных сеанса",
-              "Сопровождение в чате",
-            ].map((item, i) => (
-              <li key={i} className="flex items-center gap-3">
-                <Icon name="Check" size={18} className="text-portal-crimson flex-shrink-0" />
-                <span className="font-body text-portal-dark/80 text-base">{item}</span>
-              </li>
-            ))}
-          </ul>
+            <h3 className="font-heading text-3xl md:text-4xl font-bold text-portal-cream mb-4">
+              ВИП
+            </h3>
 
-          <div className="mb-2">
-            <span className="font-heading text-5xl md:text-6xl font-bold text-portal-dark">
-              45 000
-            </span>
-            <span className="font-body text-portal-dark/60 text-lg ml-1">₽</span>
+            <ul className="space-y-3 text-left max-w-md mx-auto mb-8 flex-1">
+              {vipItems.map((item, i) => (
+                <li key={i} className="flex items-center gap-3">
+                  <Icon
+                    name="Check"
+                    size={18}
+                    className={`flex-shrink-0 ${i >= standardItems.length ? "text-portal-gold" : "text-portal-cream/60"}`}
+                  />
+                  <span className={`font-body text-base ${i >= standardItems.length ? "text-portal-gold font-semibold" : "text-portal-cream/80"}`}>
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mb-2">
+              <span className="font-heading text-portal-cream/50 text-base line-through mr-2">По запросу</span>
+            </div>
+
+            <div className="flex items-center justify-center gap-2 text-portal-cream/60 font-body text-sm mb-8">
+              <Icon name="Calendar" size={16} />
+              <span>Старт: 6 апреля</span>
+            </div>
+
+            <a
+              href="https://t.me/m/oer-H33GZGNi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-glow inline-flex items-center justify-center gap-2 bg-portal-gold text-portal-dark font-body font-semibold text-lg px-10 py-5 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"
+            >
+              Хочу в ВИП
+              <Icon name="ArrowRight" size={20} />
+            </a>
           </div>
-
-          <div className="flex items-center justify-center gap-2 text-portal-dark/60 font-body text-sm mb-8">
-            <Icon name="Calendar" size={16} />
-            <span>Старт: 23 февраля</span>
-          </div>
-
-          <a
-            href="https://t.me/m/oer-H33GZGNi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-glow inline-flex items-center gap-2 bg-portal-crimson text-portal-cream font-body font-semibold text-lg px-12 py-5 rounded-full hover:brightness-110 transition-all duration-300 hover:scale-105"
-          >
-            Хочу участвовать
-            <Icon name="ArrowRight" size={20} />
-          </a>
         </div>
       </div>
     </section>

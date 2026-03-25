@@ -2,7 +2,7 @@ import Icon from "@/components/ui/icon";
 import { useState, useEffect } from "react";
 
 const getTimeLeft = () => {
-  const target = new Date("2026-02-23T10:00:00+03:00").getTime();
+  const target = new Date("2026-04-06T10:00:00+03:00").getTime();
   const now = Date.now();
   const diff = Math.max(0, target - now);
   return {
@@ -65,14 +65,14 @@ const HeroSection = () => {
         </p>
 
         <p className="animate-fade-up-delay-2 font-body text-base md:text-lg text-portal-cream/80 max-w-2xl mx-auto mb-8 font-light leading-relaxed">
-          За 21 день вы пересоберёте внутреннюю архитектуру личности и стабилизируете
+          За 30 дней вы пересоберёте внутреннюю архитектуру личности и стабилизируете
           новый уровень — в деньгах, проявлении и отношениях.
         </p>
 
         <div className="animate-fade-up-delay-3 flex flex-col items-center gap-5">
           <div className="inline-flex items-center gap-2 text-portal-gold font-body text-sm tracking-wider">
             <Icon name="Calendar" size={16} />
-            <span>Старт: 23 февраля</span>
+            <span>Старт: 6 апреля</span>
           </div>
 
           <div className="flex items-center gap-3 md:gap-5">
