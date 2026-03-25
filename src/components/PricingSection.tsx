@@ -33,9 +33,14 @@ const PricingSection = () => {
         <span className="inline-block text-portal-dark/60 font-body text-sm tracking-[0.2em] uppercase mb-4">
           Участие
         </span>
-        <h2 className="font-heading text-3xl md:text-5xl font-bold text-portal-dark mb-14 leading-tight">
+        <h2 className="font-heading text-3xl md:text-5xl font-bold text-portal-dark mb-8 leading-tight">
           Форматы и цены
         </h2>
+
+        <div className="inline-flex items-center gap-2 bg-white/70 text-portal-dark font-body text-sm px-5 py-2.5 rounded-full mb-10 border border-portal-dark/10">
+          <Icon name="CreditCard" size={16} className="text-portal-crimson flex-shrink-0" />
+          <span>Доступна рассрочка от банка — без переплат</span>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
           <div className="bg-white rounded-3xl p-8 md:p-10 border border-portal-dark/5 shadow-xl text-center flex flex-col">

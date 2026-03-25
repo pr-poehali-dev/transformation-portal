@@ -3,12 +3,11 @@ import useScrollReveal from "@/hooks/useScrollReveal";
 import Icon from "@/components/ui/icon";
 
 const reviewScreenshots = [
-  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/b4cdd843-2f08-432b-b93a-478833c25807.png",
-  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/20211074-bf18-48ac-8956-ab53f9ee7de4.png",
-  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/ac063273-a060-4924-8a9b-5668587092d7.png",
-  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/86676c2f-3c61-4933-a09b-b91d758d3eee.png",
-  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/f8e35029-bf0f-4e73-89da-e17586b968a7.png",
-  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/863f1e3f-4b8d-4567-817b-e2f4c529b3b1.png",
+  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/24b3414c-5271-49d5-9229-1c94bbf8561d.png",
+  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/e8058d1b-54c5-4b44-a826-e6be6c9dc865.png",
+  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/2aea6e5b-07e3-40e6-898d-b398ee2a7868.png",
+  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/3f94d97a-130d-4800-9fa1-aac44774be04.png",
+  "https://cdn.poehali.dev/projects/45c1848a-0e1e-4acb-a382-5b495e6b78f2/bucket/963451b2-1326-46fe-b9ba-3c32b6dd9347.png",
 ];
 
 const ReviewsSection = () => {
@@ -73,17 +72,17 @@ const ReviewsSection = () => {
             Что говорят участницы
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {reviewScreenshots.map((src, i) => (
               <div
                 key={i}
                 onClick={() => open(i)}
-                className="rounded-2xl overflow-hidden border border-portal-dark/5 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 aspect-[9/16] bg-portal-dark/5 cursor-pointer"
+                className="rounded-2xl overflow-hidden border border-portal-dark/5 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-portal-dark/5 cursor-pointer"
               >
                 <img
                   src={src}
                   alt={`Отзыв участника ${i + 1}`}
-                  className="w-full h-full object-cover object-top"
+                  className="w-full h-auto object-cover object-top"
                   loading="lazy"
                 />
               </div>
