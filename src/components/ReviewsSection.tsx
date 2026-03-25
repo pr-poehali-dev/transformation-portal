@@ -78,12 +78,13 @@ const ReviewsSection = () => {
               <div
                 key={i}
                 onClick={() => open(i)}
-                className="rounded-xl md:rounded-2xl overflow-hidden border border-portal-dark/5 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-portal-dark/5 cursor-pointer"
+                className="rounded-xl md:rounded-2xl overflow-hidden border border-portal-dark/5 shadow-md hover:shadow-xl transition-all duration-500 hover:-translate-y-1 cursor-pointer aspect-[3/4]"
+                style={{ backgroundColor: "#1a2535" }}
               >
                 <img
                   src={src}
                   alt={`Отзыв участника ${i + 1}`}
-                  className="w-full h-auto object-cover object-top"
+                  className="w-full h-full object-cover object-top"
                   loading="lazy"
                 />
               </div>
